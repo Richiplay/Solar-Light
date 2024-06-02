@@ -1,0 +1,19 @@
+import RPi.GPIO as GPIO
+import time
+
+# Настройка пинов
+LED_PIN = 18
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(LED_PIN, GPIO.OUT)
+
+try:
+    while True:
+        # Включение светодиода
+        GPIO.output(LED_PIN, GPIO.HIGH)
+        time.sleep(0.1)  # Светодиод включен 0.1 секунды
+        # Выключение светодиода
+        GPIO.output(LED_PIN, GPIO.LOW)
+        time.sleep(0.1)  # Светодиод выключен 0.1 секунды
+
+except KeyboardInterrupt:
+    GPIO.cleanup()
